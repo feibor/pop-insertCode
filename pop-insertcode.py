@@ -21,9 +21,9 @@ argv = sys.argv;
 filterRule=['.html','.jsp'];
 
 #The code whitch I'll replace in all files;
-afterHead = '<script src="http://style.org.hc360.com/js/build/source/core/hc.common.js"></script>'
+afterHead = '<script src="hc.common.js"></script>'
 
-beforeBody = '<script src="http://style.org.hc360.com/js/build/source/core/hc.control.js"></script>'
+beforeBody = '<script src="hc.control.js"></script>'
 
 #If some files had been insert the same code,these will not be changed again...
 headDuplicateRule='hc.common.js'
