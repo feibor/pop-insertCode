@@ -250,6 +250,9 @@ Program Over
   7).```warn``` log:
   
   
+  
+  --------Because of my daily work,English document will be continued latter,please wait for days....or you can mail me...
+  
 		   4).error 日志：
 			    
 			执行过程中，出现错误的文件将会被记录，同时记录错误异常信息
