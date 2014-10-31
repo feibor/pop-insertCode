@@ -1,7 +1,9 @@
 pop-insertCode
 ==============
 
-This is a python script ,which can loop your workdirs ,and insert codes to some kind of files.Under works will describe in two kinds of languages
+This is a python script ,which can loop your workdirs ,and insert codes to some kind of files(I think it also can be used to search some words in a mass of files quickly ).
+
+Below words will describe in two kinds of languages,just follow your favour.
 
 ##Chinese:
  下面大概说一下一些核心的信息,这个脚本因为可以用来分析目录下的各种文件，所以打算等时间空闲了做成一些比较实用的小工具，预计0.5 Release版本将分离出一些功能。如可支持过滤特定文件名称或目录（目前仅支持对指定扩展名的文件进行遍历，不支持通配符）等。
@@ -155,3 +157,7 @@ Program Over
   c.Remaining Files:当前剩余的还需要执行的文件
 
   d.Faild Files:报错的文件数，通常如果执行某个文件时出现脚本错误等，次数将会+1并记录日志。
+
+
+##English:
+ Below will describe some core infomation about this python script.I think this script can be used to analysis some files which under a work folder.So if idle ,I'll 
