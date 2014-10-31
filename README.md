@@ -17,7 +17,7 @@ This is a python script ,which can loop your workdirs ,and insert codes to some 
      
      Thanks
   ```   
-  Oh.. My God!We have 20 projects more,and each project maybe have more about 5000 files !It means that ,I must take a very 
+  Oh.. My God!We have 20 projects more,and each project maybe have more about 20000 files !It means that ,I must take a very 
 very long,boring,irritability time to insert the javascript reference!
 
   But,fortunately,I write a python script to do all of these works,no error,no boring,quickly,effectively.So , I share my script to solve others trouble...
