@@ -96,7 +96,8 @@ Getting started:
   	
  bodyDuplicateRule:作用如headDuplicaetRule
   	
-  	```python
+
+  	#!/usr/bin/env python
   	version="v0.4Beta"
 
 	argv = sys.argv;
@@ -114,6 +115,43 @@ Getting started:
 	headDuplicateRule='hc.common.js'
 	bodyDuplicateRule='hc.control.js'
 	
-  	```
-  
-  
+
+  执行效果如下：
+  ```
+  |-----------------------------------------------------------------------|
+|                PopInsertCode Version: v0.4Beta                        |
+|                @Author:Andrew Lee                                     |
+|                @Email:lipengfei217@163.com                            |
+|                @GitHub:https://github.com/lipengfei217                |
+|-----------------------------------------------------------------------|
+
+Caculating quantity of all files,please wait....
+-----------------------------------------------------------------------
+                 TotalFiles： 12
+-----------------------------------------------------------------------
+ Now is creating a bakup，please wait for minutes......
+tar -czvf buyerInfoSearch_generator20141031163523/backup/buyerInfoSearch_backup20141031163523.tar.gz buyerInfoSearch/
+
+
+-------------Backup accomplish ,path is /Users/ashihiroshi/Workspaces/pythonSpace/work/userActiveCode/src/buyerInfoSearch_generator20141031163523/backup/buyerInfoSearch_backup20141031163523.tar.gz
+
+Create folder :buyerInfoSearch_generator20141031163523/logs
+Create folder :buyerInfoSearch_generator20141031163523/code
+
+Executed Files：12 | Changed Files：8 | Remaining Files：0 | Faild Files：0 | 100%  ||====================================================================================================->
+
+Program Over
+
+  Program Over
+
+```
+
+图中会实时显示执行的进度，具体含义如下所述：
+	
+  a. Executed Files:当前已经执行过的文件数
+
+  b. Changed Files:当前已经执行过的且符合filterRule过滤规则的文件数，即 Changed Files = 文件总数-到当前为止不符合过滤规则的文件数
+
+  c.Remaining Files:当前剩余的还需要执行的文件
+
+  d.Faild Files:报错的文件数，通常如果执行某个文件时出现脚本错误等，次数将会+1并记录日志。
