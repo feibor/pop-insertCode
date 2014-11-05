@@ -64,34 +64,34 @@ Do you know?
 
 3.将会输出各种类型的日志，用以脚本执行完后的正确性参考，总共包含7中日志类型，详细如下：
 
-		   1).detail 日志：
+  1).detail 日志：
 
-			detail是对执行过修改的所有文件列出详细情况，包括原有代码和修改后的代码（仅显示修改的那部分）
+   detail是对执行过修改的所有文件列出详细情况，包括原有代码和修改后的代码（仅显示修改的那部分）
 
-		   2).duplicate 日志：
+  2).duplicate 日志：
 			
-			如果某个文件已经存在需要添加的代码（重复判定规则见headDuplicaetRule变量的值），则不对其进行修改，同时记录日志
+   如果某个文件已经存在需要添加的代码（重复判定规则见headDuplicaetRule变量的值），则不对其进行修改，同时记录日志
 
-		   3).duplicate-more 日志：
+  3).duplicate-more 日志：
 			   
-			如果某个文件存在多个需要添加的代码（2个或两个以上，有可能是人工添加时，添加了重复的脚本），此时将会记录日志，用以提出警示，用户可通过日志来选择是否删除多余的代码
+   如果某个文件存在多个需要添加的代码（2个或两个以上，有可能是人工添加时，添加了重复的脚本），此时将会记录日志，用以提出警示，用户可通过日志来选择是否删除多余的代码
 
-		   4).error 日志：
+  4).error 日志：
 			    
-			执行过程中，出现错误的文件将会被记录，同时记录错误异常信息
+   执行过程中，出现错误的文件将会被记录，同时记录错误异常信息
 
-		   5).ignore 日志：
+  5).ignore 日志：
+  
+   过滤规则以外的文件将会忽略并记录日志。
+
+  6).no-change 日志：
+
+   属于过滤规则以内的文件，但不存在head标签和body标签的文件将被记录日志，不修改其代码
+
+
+  7).warn 日志：
 			
-			过滤规则以外的文件将会忽略并记录日志。
-
-		   6).no-change 日志：
-
-			属于过滤规则以内的文件，但不存在head标签和body标签的文件将被记录日志，不修改其代码
-
-
-		   7).warn 日志：
-			
-			某个文件存在多个head标签和body标签时，依然修改文件（所有的head标签 和body标签都会被加上想要插入的代码），但会记录警告日志，可由用户自行考虑是否修改。
+   某个文件存在多个head标签和body标签时，依然修改文件（所有的head标签和body标签都会被加上想要插入的代码），但会记录警告日志，可由用户自行考虑是否修改。
 
 
 
@@ -245,32 +245,11 @@ Program Over
     Files which are out of your filter rule will be record into this log.
     
   6).```no-change``` log:
-    FIles which include into your filter rule but have no someplace to insert your code will be record into this log.
+    Files which include into your filter rule but have no someplace to insert your code will be record into this log.
     
   7).```warn``` log:
+   Files which have two or more <head> or </body>,this log will be given,although all somewhere will be changed on the file.
   
-  
-  
-  --------Because of my daily work,English document will be continued latter,please wait for days....or you can mail me...
-  
-		   4).error 日志：
-			    
-			执行过程中，出现错误的文件将会被记录，同时记录错误异常信息
-
-		   5).ignore 日志：
-			
-			过滤规则以外的文件将会忽略并记录日志。
-
-		   6).no-change 日志：
-
-			属于过滤规则以内的文件，但不存在head标签和body标签的文件将被记录日志，不修改其代码
-
-
-		   7).warn 日志：
-			
-			某个文件存在多个head标签和body标签时，依然修改文件（所有的head标签 和body标签都会被加上想要插入的代码），但会记录警告日志，可由用户自行考虑是否修改。
-
-
 
 Getting started:
   
@@ -278,23 +257,19 @@ Getting started:
   python pop-insertcode.py /Users/ashihiroshi/Downloads/buyerInfoSearch/
   ```
   
-  第一个参数是python的启用脚本语句，第二个参数是执行该脚本，第三个参数是需要插入代码的目录的路径。程序将会对 ```sh/Users/ashihiroshi/Downloads/buyerInfoSearch/ ```
-  即，将对buyerInfoSearch目录进行遍历，在此之前会在脚本当前所在页生成 buyerInfoSearch_generator_timestamp 
-  为名称的文件夹，同时对buyerInfoSearch的目录进行备份并放在backup文件夹中，所有的生成的文件包括日志和备份都会放在该文件夹内。
-
-  打开pop-insertcode.py脚本，可以根据个性化需要修改的相应参数详述如下：
+  First param is to reference your python .Second param is my script name .Third param is your workdir path.Just like above path showing ,this command will create a folder in your current path,name like buyerInfoSearch_generator_ the last suffix is  current time stamp .
+  
+  Now ,you can configure your own requirement While you open pop-insertcode.py script,detail showing below:
+  
+  Constant variable ```filterRule```:Well,it is the rule of your filter.Program will only execute files which's extension name is in filterRule.If no content in filterRule,program will not filter any files anymore.
+  
+  ```afterHead```: The code you want to insert under ```<head>```.
+  ```beforeBody```：The code you want to insert under ```</body>```.
+  ```headDuplicaetRule```:The rule of duplicate flag.If current file had contained the content of this variable ,code will not insert and recored a log . 
   	
-  filterRule常量：即过滤规则，filterRule是一个数组，表示脚本仅执行filterRule数组中所罗列的文件的扩展名（此处只针对扩展名，不针对具体文件），如果filterRule中没有数据，则将会对所有文件执行遍历
+  ```bodyDuplicateRule```:Just like variable ```headDuplicaetRule```.
   	
- afterHead:即在head标签下将要添加的代码，如果不希望添加如下链接地址的js脚本代码，可以修改下面的值。
-  	
- beforeBody：即在```</body>```标签之前添加相应代码
-  	
- headDuplicaetRule:执行判重规则，即如果所述页面存在该值所对应的代码，则不会再进行相应添加，同时会记录相应日志，防止重复添加同样的代码。
-  	
- bodyDuplicateRule:作用如headDuplicaetRule
-  	
-
+```
   	#!/usr/bin/env python
   	version="v0.4Beta"
 
@@ -312,9 +287,9 @@ Getting started:
 	#If some files had been insert the same code,these will not be changed again...
 	headDuplicateRule='hc.common.js'
 	bodyDuplicateRule='hc.control.js'
-	
+```
 
-  执行效果如下：
+  Result：
   ```
   |-----------------------------------------------------------------------|
 |                PopInsertCode Version: v0.4Beta                        |
@@ -344,13 +319,15 @@ Program Over
 
 ```
 
-图中会实时显示执行的进度，具体含义如下所述：
+__Variable of the progress  bar played an runtime log__:
 	
-  a. Executed Files:当前已经执行过的文件数
+  a. Executed Files:Now having been executed files.
+  
+  b. Changed Files:Now having been executed files which is eligible for your ```filterRule``` variable   
 
-  b. Changed Files:当前已经执行过的且符合filterRule过滤规则的文件数，即 Changed Files = 文件总数-到当前为止不符合过滤规则的文件数
 
-  c.Remaining Files:当前剩余的还需要执行的文件
 
-  d.Faild Files:报错的文件数，通常如果执行某个文件时出现脚本错误等，次数将会+1并记录日志。
+  c.Remaining Files:Now remaining files.
+
+  d.Faild Files:If some files occured an error,program will continue and get a record in error log..
  
