@@ -76,11 +76,11 @@ Below words will describe in two kinds of languages,just follow your favour.
 
   1).```detail``` log ： 
   
-    Detail log will list all of files which have been changed ,further more, will code has been changed and changed to what will also been given in this log.
+   Detail log will list all of files which have been changed ,further more, will code has been changed and changed to what will also been given in this log.
     
   2).```duplicate``` log:
   
-    If one file has include the code which you want to insert (You can see a value of the variable which named ```headDuplicaetRule``` in pop-insertCode.py),program will not changed this file,and create a record in  log...
+   If one file has include the code which you want to insert (You can see a value of the variable which named ```headDuplicaetRule``` in pop-insertCode.py),program will not changed this file,and create a record in  log...
     
   3).```duplicate-more``` log:
     If one file include another more code which you want to insert(This is possible that some one may had inserted the code in some files before .),program will not chaged this file,and create a record in log...
