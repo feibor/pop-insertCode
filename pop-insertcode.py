@@ -196,7 +196,7 @@ def doInsert(fromPath,toPath,fileName):
             if len(filterRule)==0:
                 ifIgnore=False;
             else:
-                for fl in filterRule:=
+                for fl in filterRule:
                     if(extendName==fl):
                         ifIgnore=False;
 
